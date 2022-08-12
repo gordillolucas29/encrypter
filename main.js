@@ -47,8 +47,6 @@ decrypt.onclick = () => {
 			for (let i in keys) {
 				if (messageOutput.includes(keys[i])) {
 					string = messageOutput.replaceAll(keys[i], i);
-				} else {
-					console.log(messageOutput);
 				}
 				messageOutput = string;
 			}
@@ -104,17 +102,20 @@ const slideRigth = {
 	distance: '150%',
 	duration: 800,
 	origin: 'rigth',
+	mobile: false
 };
 
 const slideLeft = {
 	distance: '150%',
 	duration: 800,
 	origin: 'left',
+	mobile: false
 };
 const slideDown = {
 	distance: '150%',
 	duration: 800,
 	origin: 'top',
+	mobile: false
 };
 
 ScrollReveal().reveal('#logo', {
@@ -122,9 +123,9 @@ ScrollReveal().reveal('#logo', {
 	duration: 1000,
 	origin: 'left',
 	delay: 400,
+	mobile: false
 });
 
 ScrollReveal().reveal('#output-message', slideRigth);
 ScrollReveal().reveal('#messageInput', slideDown);
-ScrollReveal().reveal('#messageInput', { duration: 800 });
 ScrollReveal().reveal('.buttons-input', slideLeft);
