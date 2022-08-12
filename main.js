@@ -54,10 +54,10 @@ decrypt.onclick = () => {
 			}
 			afterClick();
 		} else {
-			popup("popup-decrypt")
+			popup("popup-only")
 		}
 	} else {
-		popup("popup-only")
+		popup("popup-decrypt")
 	}
 };
 
