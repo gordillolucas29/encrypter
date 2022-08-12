@@ -13,18 +13,25 @@ const keys = {
 
 let messageOutput = "";
 
-encrypt.onclick = () => {
-	let messageValue = messageInput.value;
-	if (messageValue !== "") {
-		for (let i = 0; i < messageValue.length; i++) {
-			let string = messageValue.charAt(i);
 
-			if (/^[aeiou]$/.test(string)) {
-				string = keys[string];
+encrypt.onclick = () => {
+	let inputValue = messageInput.value.trim();
+	messageOutput = "";
+
+	if (inputValue) {
+		if (!inputValue.match(/[^a-z\s]/g)) {
+			for (let i = 0; i < inputValue.length; i++) {
+				let string = inputValue.charAt(i);
+				if (/^[aeiou]$/.test(string)) {
+					string = keys[string];
+				}
+				messageOutput += string;
 			}
-			messageOutput += string;
+			afterClick();
+
+		} else {
+			popup("popup-only")
 		}
-		afterClick();
 	} else {
 		popup("popup-encrypt")
 	}
@@ -32,14 +39,16 @@ encrypt.onclick = () => {
 
 
 decrypt.onclick = () => {
-	messageOutput = messageInput.value;
+	messageOutput = messageInput.value.trim();
 	let string;
 
-	if (!messageOutput.match(/[^a-z\s]/g)) {
-		if (messageOutput !== "") {
+	if (messageOutput) {
+		if (!messageOutput.match(/[^a-z\s]/g)) {
 			for (let i in keys) {
 				if (messageOutput.includes(keys[i])) {
 					string = messageOutput.replaceAll(keys[i], i);
+				} else {
+					console.log(messageOutput);
 				}
 				messageOutput = string;
 			}
@@ -51,7 +60,6 @@ decrypt.onclick = () => {
 		popup("popup-only")
 	}
 };
-
 
 function popup(id) {
 	const popupEncrypt = document.getElementById(id);
@@ -76,7 +84,6 @@ function afterClick() {
 	messageInput.value = "";
 	messageInput.focus();
 
-
 	document.getElementById("no-message-container").setAttribute("hidden", "true");
 
 	const element = document.getElementById("output-text");
@@ -90,6 +97,8 @@ function afterClick() {
 
 	copy.removeAttribute("hidden");
 }
+
+// SCROLL REVEAL
 
 const slideRigth = {
 	distance: '150%',

@@ -244,7 +244,7 @@ main{
 }
 
 .button-secondary:hover{
-	background: var(--light-blue-100);
+	background: var(--gray-100);
 }
 
 footer{
