@@ -35,16 +35,20 @@ decrypt.onclick = () => {
 	messageOutput = messageInput.value;
 	let string;
 
-	if (messageOutput !== "") {
-		for (let i in keys) {
-			if (messageOutput.includes(keys[i])) {
-				string = messageOutput.replaceAll(keys[i], i);
+	if (!messageOutput.match(/[^a-z\s]/g)) {
+		if (messageOutput !== "") {
+			for (let i in keys) {
+				if (messageOutput.includes(keys[i])) {
+					string = messageOutput.replaceAll(keys[i], i);
+				}
+				messageOutput = string;
 			}
-			messageOutput = string;
+			afterClick();
+		} else {
+			popup("popup-decrypt")
 		}
-		afterClick();
 	} else {
-		popup("popup-decrypt")
+		popup("popup-only")
 	}
 };
 

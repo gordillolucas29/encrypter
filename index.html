@@ -27,8 +27,13 @@
 
 	<main>
 		<div class="d-flex f-col f-center">
+
 			<textarea id="messageInput" name="message" cols="30" rows="10" placeholder="Enter text here"></textarea>
 			<div class="buttons-input">
+				<div id="popup-only" class="popup-only hidden">
+					<i class="fa-solid fa-triangle-exclamation"></i>
+					<p>Please enter lowercase letters and no accents</p>
+				</div>
 				<div id="popup-encrypt" class="popup hidden">
 					<i class="fa-solid fa-triangle-exclamation"></i>
 					<p>Please enter a text to encrypt</p>

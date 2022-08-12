@@ -188,6 +188,7 @@ main{
 }
 
 .popup,
+.popup-only,
 .popup-copy{
 	background-color: var(--gray-500);
 	color: var(--gray-100);
@@ -197,18 +198,22 @@ main{
 	align-items: center;
 	justify-content: space-around;
 	position: absolute;
+	border-radius: 8px;
 }
 
 .popup{
 	width: 16rem;
-	border-radius: 8px;
 	top: -20px;
 }
 
 .popup-copy{
 	width: 10rem;
-	border-radius: 8px;
 	bottom: 140px;
+}
+
+.popup-only{
+	width: 24rem;
+	top: -50px;
 }
 
 .button-primary,
@@ -265,6 +270,7 @@ footer a {
 	}
 	#messageInput{
 		height: 30rem;
+		margin-top: 8rem;
 	}
 	.output-message{
 		width: 660px;
@@ -287,7 +293,6 @@ footer a {
 @media screen and (max-width: 768px){
 	#messageInput{
 		width: 350px;
-		margin-top: 8rem;
 	}
 	.buttons-input{
 		display: flex;
@@ -304,5 +309,8 @@ footer a {
 	}
 	#no-message-container{
 		width: 80%;
+	}
+	.popup-only{
+		width: 16rem;
 	}
 }
