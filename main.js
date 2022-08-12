@@ -39,8 +39,6 @@ decrypt.onclick = () => {
 		for (let i in keys) {
 			if (messageOutput.includes(keys[i])) {
 				string = messageOutput.replaceAll(keys[i], i);
-			} else {
-				popup("popup-decrypt")
 			}
 			messageOutput = string;
 		}
