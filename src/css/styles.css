@@ -20,6 +20,8 @@
 	--light-blue-300: #E9ECF8;
 	--light-blue-400: #AAB2D5;
 	--light-blue-500: #AAB2D5;
+	--warning: #b34045; 
+	--success: #2d884d;
 }
 
 
@@ -105,7 +107,7 @@ main{
 	box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
 	border-radius: 32px;
 	width: 400px;
-	height: calc(100vh - 50px);
+	height: calc((100vh - 50px));
 	max-height: 944px;
 	margin: 20px 0;
 }
@@ -141,7 +143,7 @@ main{
 
 #output-text{
 	width: 100%;
-	height: 400px;
+	height: 50vh;
 	color: var(--gray-400);
 	font-size: 24px;
 	font-weight: 400;
@@ -168,8 +170,10 @@ main{
 	color: var(--gray-400);
 }
 
-#copy{
-	margin-top: 20px;
+#copy-container{
+	position: relative;
+	margin-top: 60px;
+
 }
 
 .exclamation{
@@ -193,8 +197,7 @@ main{
 .popup,
 .popup-only,
 .popup-copy{
-	background-color: var(--gray-500);
-	color: var(--gray-100);
+	color: white;
 	text-align: center;
 	padding: 6px;
 	display: flex;
@@ -204,14 +207,20 @@ main{
 	border-radius: 8px;
 }
 
+.popup,
+.popup-only{
+	background-color: var(--warning);
+}
+
 .popup{
 	width: 16rem;
 	top: -20px;
 }
 
 .popup-copy{
+	background-color: var(--success);
 	width: 10rem;
-	bottom: 140px;
+	top: -50px;
 }
 
 .popup-only{
@@ -241,7 +250,8 @@ main{
 }
 
 .button-secondary{
-	background:transparent;
+	background:
+	transparent;
 	color: var(--dark-blue-300);
 	border: 1px solid var(--dark-blue-300);
 }
@@ -257,7 +267,7 @@ footer{
 	font-size: 1em;
 	padding: 10px;
 	background-color: var(--dark-blue-400);
-	color: var(--gray-100); 
+	color: var(--gray-100);
 }
 
 footer a {
@@ -283,10 +293,6 @@ footer a {
 		margin-bottom: 40px;
 		height: auto;
 	}
-	.output-message img {
-		width: 15rem;
-	}
-
 	#output-text{
 		height: 200px;
 	}
@@ -306,9 +312,6 @@ footer a {
 	}
 	.output-message{
 		width: 350px;
-	}
-	.output-message img {
-		width: 10rem;
 	}
 	#no-message-container{
 		width: 80%;

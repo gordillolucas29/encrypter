@@ -15,7 +15,7 @@
 	<script src="https://kit.fontawesome.com/be440a05a3.js" crossorigin="anonymous"></script>
 	<!-- FAVICON -->
 	<link rel="icon" type="image/png" href="src/img/logo.png" />
-	<!-- SCOLL REVEAL -->
+	<!-- SCROLL REVEAL -->
 	<script src="https://unpkg.com/scrollreveal"></script>
 </head>
 
@@ -56,18 +56,20 @@
 				<textarea id="output-text" readonly hidden></textarea>
 			</div>
 
-			<img src="src/img/search-messages.png" alt="image not messages">
+			<img id="img-output" src="src/img/search-messages.png" alt="image not messages">
 			<div id="no-message-container">
 				<div class="d-flex f-col">
 					<p id="no-message-title">No message was found.</p>
 					<p id="no-message">Enter the text you want to encrypt or decrypt.</p>
 				</div>
 			</div>
-			<div id="popup-copy" class="popup-copy hidden">
-				<i class="fa-solid fa-circle-check"></i>
-				<p>Message copied</p>
+			<div id="copy-container">
+				<div id="popup-copy" class="popup-copy hidden">
+					<i class="fa-solid fa-circle-check"></i>
+					<p>Message copied</p>
+				</div>
+				<button class="button-secondary" id="copy" hidden>Copy</button>
 			</div>
-			<button class="button-secondary" id="copy" hidden>Copy</button>
 		</div>
 
 		<svg id="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">

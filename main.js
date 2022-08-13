@@ -74,8 +74,9 @@ function copyToClipboard() {
 	let copyText = document.getElementById("output-text");
 
 	navigator.clipboard.writeText(copyText.value);
-
 	popup("popup-copy")
+	document.getElementById("popup-copy").style.left = "75px";
+
 }
 
 function afterClick() {
@@ -83,6 +84,7 @@ function afterClick() {
 	messageInput.focus();
 
 	document.getElementById("no-message-container").setAttribute("hidden", "true");
+	document.getElementById("img-output").setAttribute("hidden", "true");
 
 	const element = document.getElementById("output-text");
 	element.remove();
