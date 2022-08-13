@@ -98,24 +98,21 @@ function afterClick() {
 
 // SCROLL REVEAL
 
-const slideRigth = {
+const slideRight = {
 	distance: '150%',
 	duration: 800,
-	origin: 'rigth',
-	mobile: false
+	origin: 'right',
 };
 
 const slideLeft = {
 	distance: '150%',
 	duration: 800,
 	origin: 'left',
-	mobile: false
 };
 const slideDown = {
 	distance: '150%',
 	duration: 800,
 	origin: 'top',
-	mobile: false
 };
 
 ScrollReveal().reveal('#logo', {
@@ -123,9 +120,8 @@ ScrollReveal().reveal('#logo', {
 	duration: 1000,
 	origin: 'left',
 	delay: 400,
-	mobile: false
 });
 
-ScrollReveal().reveal('#output-message', slideRigth);
+ScrollReveal().reveal('#output-message', slideRight);
 ScrollReveal().reveal('#messageInput', slideDown);
 ScrollReveal().reveal('.buttons-input', slideLeft);
