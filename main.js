@@ -11,52 +11,42 @@ const keys = {
 	u: "ufat",
 }
 
-let messageOutput = "";
-
+let messageOutput;
 
 encrypt.onclick = () => {
 	let inputValue = messageInput.value.trim();
-	messageOutput = "";
+	messageOutput = '';
 
-	if (inputValue) {
-		if (!inputValue.match(/[^a-z\s]/g)) {
-			for (let i = 0; i < inputValue.length; i++) {
-				let string = inputValue.charAt(i);
-				if (/^[aeiou]$/.test(string)) {
-					string = keys[string];
-				}
-				messageOutput += string;
-			}
-			afterClick();
+	if (!inputValue) return popup("popup-encrypt");
 
-		} else {
-			popup("popup-only")
+	if (inputValue.match(/[^a-z\s]/g)) return popup("popup-only");
+
+	for (let i = 0; i < inputValue.length; i++) {
+		let string = inputValue.charAt(i);
+
+		if (/^[aeiou]$/.test(string)) {
+			string = keys[string];
 		}
-	} else {
-		popup("popup-encrypt")
+		messageOutput += string;
 	}
+	afterClick();
 };
-
 
 decrypt.onclick = () => {
 	messageOutput = messageInput.value.trim();
 	let string;
 
-	if (messageOutput) {
-		if (!messageOutput.match(/[^a-z\s]/g)) {
-			for (let i in keys) {
-				if (messageOutput.includes(keys[i])) {
-					string = messageOutput.replaceAll(keys[i], i);
-				}
-				messageOutput = string;
-			}
-			afterClick();
-		} else {
-			popup("popup-only")
+	if (!messageOutput) return popup("popup-decrypt");
+
+	if (messageOutput.match(/[^a-z\s]/g)) return popup("popup-only");
+
+	for (let i in keys) {
+		if (messageOutput.includes(keys[i])) {
+			string = messageOutput.replaceAll(keys[i], i);
 		}
-	} else {
-		popup("popup-decrypt")
+		messageOutput = string;
 	}
+	afterClick();
 };
 
 function popup(id) {
@@ -67,17 +57,13 @@ function popup(id) {
 	}, 1000);
 }
 
-copy.onclick = copyToClipboard;
-
-
-function copyToClipboard() {
+copy.onclick = () => {
 	let copyText = document.getElementById("output-text");
 
 	navigator.clipboard.writeText(copyText.value);
 	popup("popup-copy")
 	document.getElementById("popup-copy").style.left = "75px";
-
-}
+};
 
 function afterClick() {
 	messageInput.value = "";
@@ -99,23 +85,13 @@ function afterClick() {
 }
 
 // SCROLL REVEAL
-
-const slideRight = {
-	distance: '150%',
-	duration: 800,
-	origin: 'right',
-};
-
-const slideLeft = {
-	distance: '150%',
-	duration: 800,
-	origin: 'left',
-};
-const slideDown = {
-	distance: '150%',
-	duration: 800,
-	origin: 'top',
-};
+function slide(slideTo) {
+	return {
+		distance: '150%',
+		duration: 800,
+		origin: slideTo,
+	}
+}
 
 ScrollReveal().reveal('#logo', {
 	distance: '150%',
@@ -124,6 +100,10 @@ ScrollReveal().reveal('#logo', {
 	delay: 400,
 });
 
-ScrollReveal().reveal('#output-message', slideRight);
-ScrollReveal().reveal('#messageInput', slideDown);
-ScrollReveal().reveal('.buttons-input', slideLeft);
+ScrollReveal().reveal('#output-message', slide('right'));
+ScrollReveal().reveal('#messageInput', slide('top'));
+ScrollReveal().reveal('.buttons-input', slide('left'));
+
+console.log(slide('down'))
+console.log(slide('right'))
+console.log(slide('left'))
