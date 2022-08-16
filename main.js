@@ -103,7 +103,3 @@ ScrollReveal().reveal('#logo', {
 ScrollReveal().reveal('#output-message', slide('right'));
 ScrollReveal().reveal('#messageInput', slide('top'));
 ScrollReveal().reveal('.buttons-input', slide('left'));
-
-console.log(slide('down'))
-console.log(slide('right'))
-console.log(slide('left'))
